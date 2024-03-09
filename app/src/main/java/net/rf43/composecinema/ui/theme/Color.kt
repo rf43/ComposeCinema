@@ -2,7 +2,7 @@ package net.rf43.composecinema.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val primaryLight = Color(0xFF006876)
+val primaryLight = Color(0xFF2292A4)
 val onPrimaryLight = Color(0xFFFFFFFF)
 val primaryContainerLight = Color(0xFFA1EFFF)
 val onPrimaryContainerLight = Color(0xFF001F25)

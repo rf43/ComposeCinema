@@ -12,6 +12,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 
@@ -22,7 +23,7 @@ fun DetailScreenRoute(
 ) {
     Surface {
         DetailScreen(
-            uiState = viewModel.uiState.value,
+            uiState = viewModel.uiState.collectAsState().value,
         ) {
             onNavigate()
         }
