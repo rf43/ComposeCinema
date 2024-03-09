@@ -1,4 +1,4 @@
-package net.rf43.composecinema
+package net.rf43.composecinema.components
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
