@@ -21,6 +21,7 @@ import net.rf43.composecinema.R
 @Composable
 internal fun CarouselItem(
     modifier: Modifier = Modifier,
+    carouselItemData: CarouselItemData
 ) {
     Column(
         modifier = modifier,
@@ -34,7 +35,7 @@ internal fun CarouselItem(
                     vertical = 24.dp
                 ),
             model = ImageRequest.Builder(LocalContext.current)
-                .data("https://image.tmdb.org/t/p/w1280/jCWOkfMLsT2sGHadCkmR65MWtJu.jpg")
+                .data(carouselItemData.imageUrl)
                 .crossfade(true)
                 .build(),
             placeholder = painterResource(id = R.drawable.video_chat),
@@ -43,14 +44,12 @@ internal fun CarouselItem(
             contentDescription = null
         )
         Text(
-            text = "Aqua Teen Hunger Force",
+            text = carouselItemData.title,
             style = MaterialTheme.typography.titleLarge,
         )
         Spacer(modifier = Modifier.height(8.dp))
         Text(
-            text = "The surreal adventures of three anthropomorphic fast food items: " +
-                    "Master Shake, Frylock and Meatwad, and their human next door neighbor, " +
-                    "Carl Brutananadilewski.",
+            text = carouselItemData.description,
             maxLines = 3,
             style = MaterialTheme.typography.bodyMedium,
             textAlign = TextAlign.Center,
@@ -59,3 +58,37 @@ internal fun CarouselItem(
         )
     }
 }
+
+data class CarouselItemData(
+    val title: String,
+    val description: String,
+    val imageUrl: String
+)
+
+val carouselList: List<CarouselItemData> = listOf(
+    CarouselItemData(
+        title = "Aqua Teen Hunger Force",
+        description = "The surreal adventures of three anthropomorphic fast food items: " +
+                "Master Shake, Frylock and Meatwad, and their human next door neighbor, " +
+                "Carl Brutananadilewski.",
+        imageUrl = "https://image.tmdb.org/t/p/w1280/jCWOkfMLsT2sGHadCkmR65MWtJu.jpg"
+    ),
+    CarouselItemData(
+        title = "Grandma's Boy",
+        description = "Even though he's 35, Alex acts more like he's 13, spending his days " +
+                "as the world's oldest video game tester and his evenings developing the " +
+                "next big Xbox game. But when he gets kicked out of his apartment, he's " +
+                "forced to move in with his grandmother.",
+        imageUrl = "https://image.tmdb.org/t/p/w1280/zaGIcb0hXxUbuyIZ0j7uCmbO1li.jpg"
+    ),
+    CarouselItemData(
+        title = "The Replacements",
+        description = "Maverick old-guard coach Jimmy McGinty is hired in the wake of a " +
+                "players' strike to help the Washington Sentinels advance to the playoffs. " +
+                "But that impossible dream hinges on whether his replacements can hunker down " +
+                "and do the job. So, McGinty dusts off his secret dossier of ex-players who " +
+                "never got a chance (or screwed up the one they were given) and knits together " +
+                "a bad-dream team of guys who just may give the Sentinels their title shot.",
+        imageUrl = "https://image.tmdb.org/t/p/w1280/6qerI41HqkdRlio1sG0d5HLZcFN.jpg"
+    )
+)

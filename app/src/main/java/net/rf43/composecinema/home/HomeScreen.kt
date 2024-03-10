@@ -45,7 +45,8 @@ private fun HomeScreen(
                 TopSection(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .weight(1f)
+                        .weight(1f),
+                    carouselItems = carouselList
                 )
                 BottomSection(
                     modifier = Modifier

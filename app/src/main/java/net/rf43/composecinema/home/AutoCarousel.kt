@@ -18,10 +18,10 @@ import androidx.compose.ui.unit.dp
 @Composable
 internal fun AutoCarousel(
     modifier: Modifier = Modifier,
-    animationDurationMillis: Int = 1500,
-    animationDelayMillis: Int = 5000,
-    itemCount: Int = 0,
-    itemContent: @Composable (index: Int) -> Unit = {}
+    animationDurationMillis: Int,
+    animationDelayMillis: Int,
+    itemCount: Int,
+    itemContent: @Composable (index: Int) -> Unit
 ) {
     val pagerState = rememberPagerState(pageCount = { itemCount })
 
@@ -51,7 +51,7 @@ internal fun AutoCarousel(
         CarouselIndexIndicator(
             modifier = Modifier.padding(top = 16.dp),
             dotCount = itemCount,
-            selectedIndex = pagerState.currentPage
+            selectedIndex = pagerState.settledPage
         )
     }
 }

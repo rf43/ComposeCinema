@@ -14,9 +14,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.rf43.composecinema.ui.theme.ComposeCinemaTheme
 
+private const val ANIMATION_DURATION_MILLIS: Int = 1250
+private const val ANIMATION_DELAY_MILLIS: Int = 5000
+
 @Composable
 internal fun TopSection(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    carouselItems: List<CarouselItemData>
 ) {
     Column(
         modifier = modifier
@@ -35,9 +39,14 @@ internal fun TopSection(
     ) {
         AutoCarousel(
             modifier = Modifier.fillMaxSize(),
-            itemCount = 3,
+            animationDurationMillis = ANIMATION_DURATION_MILLIS,
+            animationDelayMillis = ANIMATION_DELAY_MILLIS,
+            itemCount = carouselItems.size,
             itemContent = {
-                CarouselItem()
+                CarouselItem(
+                    modifier = Modifier.fillMaxSize(),
+                    carouselItemData = carouselList[it]
+                )
             }
         )
     }
@@ -48,7 +57,9 @@ internal fun TopSection(
 private fun Preview() {
     ComposeCinemaTheme {
         Surface {
-            TopSection()
+            TopSection(
+                carouselItems = carouselList
+            )
         }
     }
 }
