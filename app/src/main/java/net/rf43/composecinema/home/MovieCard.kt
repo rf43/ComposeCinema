@@ -38,7 +38,8 @@ import net.rf43.composecinema.ui.theme.ComposeCinemaTheme
 internal fun MovieCard(
     modifier: Modifier = Modifier,
     onItemClick: () -> Unit = {},
-    onFavoriteClick: () -> Unit = {}
+    onFavoriteClick: () -> Unit = {},
+    onItemPlayClick: () -> Unit = {}
 ) {
     var favoriteIconFilled by remember { mutableStateOf(true) }
 
@@ -82,9 +83,9 @@ internal fun MovieCard(
                 modifier = Modifier
                     .weight(1f)
                     .fillMaxWidth()
-                    .padding(horizontal = 16.dp)
+                    .padding(horizontal = 24.dp)
                     .padding(bottom = 16.dp),
-                horizontalArrangement = Arrangement.Center
+                horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 IconButton(
                     modifier = Modifier.size(24.dp),
@@ -100,6 +101,19 @@ internal fun MovieCard(
                             } else {
                                 R.drawable.favorite_filled_24
                             }
+                        ),
+                        contentDescription = null
+                    )
+                }
+                IconButton(
+                    modifier = Modifier.size(24.dp),
+                    onClick = {
+                        onItemPlayClick()
+                    }
+                ) {
+                    Icon(
+                        painter = painterResource(
+                            id = R.drawable.play_circle_outline
                         ),
                         contentDescription = null
                     )
