@@ -22,7 +22,7 @@ import net.rf43.composecinema.ui.theme.posterBackgroundGradientEnd
 import net.rf43.composecinema.ui.theme.posterBackgroundGradientStart
 
 @Composable
-internal fun Hero(
+internal fun TopSection(
     modifier: Modifier = Modifier
 ) {
     Column(

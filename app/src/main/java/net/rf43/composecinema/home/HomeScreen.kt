@@ -42,7 +42,7 @@ private fun HomeScreen(
             Column(
                 modifier = Modifier.fillMaxSize()
             ) {
-                Hero(
+                TopSection(
                     modifier = Modifier
                         .fillMaxWidth()
                         .weight(1f)
