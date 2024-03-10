@@ -43,20 +43,24 @@ internal fun TopSection(
                 )
             ),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.SpaceEvenly
+        verticalArrangement = Arrangement.Top
     ) {
-        Spacer(modifier = Modifier.height(24.dp))
         AsyncImage(
-            modifier = Modifier.weight(3f),
+            modifier = Modifier
+                .weight(weight = 1f, fill = true)
+                .padding(
+                    horizontal = 16.dp,
+                    vertical = 24.dp
+                ),
             model = ImageRequest.Builder(LocalContext.current)
                 .data("https://image.tmdb.org/t/p/w1280/jCWOkfMLsT2sGHadCkmR65MWtJu.jpg")
                 .crossfade(true)
                 .build(),
             placeholder = painterResource(id = R.drawable.video_chat),
+            error = painterResource(id = R.drawable.video_chat),
             contentScale = ContentScale.Fit,
             contentDescription = null
         )
-        Spacer(modifier = Modifier.height(16.dp))
         Text(
             text = "Aqua Teen Hunger Force",
             style = MaterialTheme.typography.titleLarge,
@@ -67,12 +71,13 @@ internal fun TopSection(
                     "Master Shake, Frylock and Meatwad, and their human next door neighbor, " +
                     "Carl Brutananadilewski.",
             maxLines = 3,
-            style = MaterialTheme.typography.labelSmall,
+            style = MaterialTheme.typography.bodyMedium,
             textAlign = TextAlign.Center,
             modifier = Modifier
-                .weight(1f)
                 .padding(horizontal = 20.dp),
         )
+
+        CarouselIndexIndicator(modifier = Modifier.padding(top = 16.dp))
     }
 }
 

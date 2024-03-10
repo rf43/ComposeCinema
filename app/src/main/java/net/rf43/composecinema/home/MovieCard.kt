@@ -32,16 +32,19 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import net.rf43.composecinema.R
+import net.rf43.composecinema.common.MovieItem
 import net.rf43.composecinema.ui.theme.ComposeCinemaTheme
 
 @Composable
 internal fun MovieCard(
     modifier: Modifier = Modifier,
+    data: MovieItem = MovieItem(),
     onItemClick: () -> Unit = {},
     onFavoriteClick: () -> Unit = {},
     onItemPlayClick: () -> Unit = {}
 ) {
-    var favoriteIconFilled by remember { mutableStateOf(true) }
+    // TODO: Why is this reversed?
+    var favoriteIconFilled by remember { mutableStateOf(!data.isFavorite) }
 
     Card(
         modifier = modifier
@@ -62,10 +65,11 @@ internal fun MovieCard(
                     .weight(3f)
                     .fillMaxWidth(),
                 model = ImageRequest.Builder(LocalContext.current)
-                    .data("https://upload.wikimedia.org/wikipedia/commons/c/c5/Big_buck_bunny_poster_big.jpg")
+                    .data("https://upload.wikimedia.org/wikipedia/commons/c/c5/Big_buck_bunny_poster_big.jpgfrfrfr")
                     .crossfade(true)
                     .build(),
                 placeholder = painterResource(id = R.drawable.video_chat),
+                error = painterResource(id = R.drawable.video_chat),
                 contentScale = ContentScale.Fit,
                 contentDescription = null,
                 alignment = Alignment.Center

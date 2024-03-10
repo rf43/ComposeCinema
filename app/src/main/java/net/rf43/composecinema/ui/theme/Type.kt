@@ -17,6 +17,20 @@ val Typography = Typography(
         lineHeight = 24.sp,
         letterSpacing = 0.5.sp
     ),
+    bodyMedium = TextStyle(
+        fontFamily = FontFamily(Font(R.font.poppins_light)),
+        fontWeight = FontWeight.Light,
+        fontSize = 13.sp,
+        lineHeight = 18.sp,
+        letterSpacing = 0.5.sp
+    ),
+    bodySmall = TextStyle(
+        fontFamily = FontFamily(Font(R.font.poppins_light)),
+        fontWeight = FontWeight.Light,
+        fontSize = 11.sp,
+        lineHeight = 16.sp,
+        letterSpacing = 0.5.sp
+    ),
     titleLarge = TextStyle(
         fontFamily = FontFamily(Font(R.font.poppins_semibold)),
         fontWeight = FontWeight.SemiBold,
@@ -34,8 +48,8 @@ val Typography = Typography(
     labelSmall = TextStyle(
         fontFamily = FontFamily(Font(R.font.poppins_extralight)),
         fontWeight = FontWeight.Light,
-        fontSize = 11.sp,
-        lineHeight = 16.sp,
+        fontSize = 9.sp,
+        lineHeight = 10.sp,
         letterSpacing = 0.5.sp
     )
 )
