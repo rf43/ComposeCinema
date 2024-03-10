@@ -42,7 +42,7 @@ internal fun MovieCard(
     var favoriteIconFilled by remember { mutableStateOf(true) }
 
     Card(
-        modifier = Modifier
+        modifier = modifier
             .padding(horizontal = 8.dp)
             .width(200.dp)
             .height(250.dp),

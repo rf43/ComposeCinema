@@ -14,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -24,8 +25,6 @@ import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import net.rf43.composecinema.R
 import net.rf43.composecinema.ui.theme.ComposeCinemaTheme
-import net.rf43.composecinema.ui.theme.posterBackgroundGradientEnd
-import net.rf43.composecinema.ui.theme.posterBackgroundGradientStart
 
 @Composable
 internal fun TopSection(
@@ -37,8 +36,8 @@ internal fun TopSection(
             .background(
                 Brush.verticalGradient(
                     colors = listOf(
-                        posterBackgroundGradientStart,
-                        posterBackgroundGradientEnd
+                        Color(0xFF212931),
+                        Color.Transparent
                     ),
                     endY = 400.dp.value
                 )

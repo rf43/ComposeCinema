@@ -22,7 +22,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.rf43.composecinema.ui.theme.ComposeCinemaTheme
-import net.rf43.composecinema.ui.theme.bottomThingBackground
 
 @Composable
 internal fun BottomSection(
@@ -31,9 +30,9 @@ internal fun BottomSection(
     Column(
         modifier = modifier
             .fillMaxSize()
-            .background(bottomThingBackground)
+            .background(MaterialTheme.colorScheme.surface)
+            .padding(vertical = 16.dp)
     ) {
-        Spacer(modifier = Modifier.height(24.dp))
         Row(
             modifier = Modifier
                 .height(36.dp)

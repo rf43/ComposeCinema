@@ -217,8 +217,3 @@ val surfaceContainerLowDarkHighContrast = Color(0xFF191C1F)
 val surfaceContainerDarkHighContrast = Color(0xFF1D2023)
 val surfaceContainerHighDarkHighContrast = Color(0xFF272A2E)
 val surfaceContainerHighestDarkHighContrast = Color(0xFF323539)
-
-
-val posterBackgroundGradientStart = Color(0xFF332400)
-val posterBackgroundGradientEnd = surfaceDark
-val bottomThingBackground = surfaceDark
