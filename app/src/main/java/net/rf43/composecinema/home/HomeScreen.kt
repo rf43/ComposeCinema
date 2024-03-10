@@ -72,7 +72,6 @@ private fun HomeScreen(
 @Composable
 private fun Preview() {
     ComposeCinemaTheme {
-        // A surface container using the 'background' color from the theme
         Surface {
             HomeScreen() {}
         }

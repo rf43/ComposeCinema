@@ -79,7 +79,6 @@ internal fun TopSection(
 @Composable
 private fun Preview() {
     ComposeCinemaTheme {
-        // A surface container using the 'background' color from the theme
         Surface {
             TopSection()
         }
