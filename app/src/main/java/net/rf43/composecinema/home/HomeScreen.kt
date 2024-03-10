@@ -4,19 +4,13 @@ import android.content.res.Configuration
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Button
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults.topAppBarColors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import net.rf43.composecinema.ui.theme.ComposeCinemaTheme
 
 @Composable
@@ -31,22 +25,13 @@ fun HomeScreenRoute(
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun HomeScreen(
     onClick: () -> Unit
 ) {
     Scaffold(
         topBar = {
-            TopAppBar(
-                colors = topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.primaryContainer,
-                    titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer ,
-                ),
-                title = {
-                    Text("Top app bar")
-                }
-            )
+            HomeTopAppBar()
         }
     ) { padding ->
         Box(
@@ -55,22 +40,33 @@ private fun HomeScreen(
                 .padding(padding)
         ) {
             Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(horizontal = 16.dp)
-                    .padding(top = 16.dp)
+                modifier = Modifier.fillMaxSize()
             ) {
-                Text(text = "Home Screen")
-                Button(onClick = { onClick() }) {
-                    Text(text = "Detail Screen")
-                }
+                Hero(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .weight(1f)
+                )
+                BottomSection(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .weight(1f)
+                )
             }
         }
     }
 }
 
 @Preview(
-    showSystemUi = true, showBackground = true, device = "id:pixel_3",
+    showSystemUi = true,
+    showBackground = true,
+    device = "id:Nexus 6P",
+    uiMode = Configuration.UI_MODE_NIGHT_YES or Configuration.UI_MODE_TYPE_NORMAL
+)
+@Preview(
+    showSystemUi = true,
+    showBackground = true,
+    device = "id:pixel_5",
     uiMode = Configuration.UI_MODE_NIGHT_YES or Configuration.UI_MODE_TYPE_NORMAL
 )
 @Composable
