@@ -37,6 +37,7 @@ import net.rf43.composecinema.ui.theme.ComposeCinemaTheme
 @Composable
 internal fun MovieCard(
     modifier: Modifier = Modifier,
+    onItemClick: () -> Unit = {},
     onFavoriteClick: () -> Unit = {}
 ) {
     var favoriteIconFilled by remember { mutableStateOf(true) }
@@ -48,7 +49,10 @@ internal fun MovieCard(
             .height(250.dp),
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.surfaceContainer,
-        )
+        ),
+        onClick = {
+            onItemClick()
+        }
     ) {
         Column {
             Spacer(modifier = Modifier.height(24.dp))
