@@ -65,7 +65,7 @@ internal fun MovieCard(
                     .weight(3f)
                     .fillMaxWidth(),
                 model = ImageRequest.Builder(LocalContext.current)
-                    .data("https://upload.wikimedia.org/wikipedia/commons/c/c5/Big_buck_bunny_poster_big.jpgfrfrfr")
+                    .data("https://upload.wikimedia.org/wikipedia/commons/c/c5/Big_buck_bunny_poster_big.jpg")
                     .crossfade(true)
                     .build(),
                 placeholder = painterResource(id = R.drawable.video_chat),

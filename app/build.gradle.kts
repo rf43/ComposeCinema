@@ -68,8 +68,6 @@ dependencies {
     implementation("androidx.media3:media3-exoplayer-hls:1.3.0")
     implementation("androidx.media3:media3-ui:1.3.0")
 
-    implementation("com.google.accompanist:accompanist-pager:0.22.0-rc")
-
     implementation("io.coil-kt:coil-compose:2.6.0")
 
     testImplementation("junit:junit:4.13.2")
