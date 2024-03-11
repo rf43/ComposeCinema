@@ -90,5 +90,24 @@ val carouselList: List<CarouselItemData> = listOf(
                 "never got a chance (or screwed up the one they were given) and knits together " +
                 "a bad-dream team of guys who just may give the Sentinels their title shot.",
         imageUrl = "https://image.tmdb.org/t/p/w1280/6qerI41HqkdRlio1sG0d5HLZcFN.jpg"
-    )
+    ),
+    CarouselItemData(
+        title = "Sharktopus vs. Whalewolf",
+        description = "When a mad scientist mixes the genes of a killer whale and a wolf, it " +
+                "creates the Whalewolf, and it's up to Sharktopus to stop it.",
+        imageUrl = "https://image.tmdb.org/t/p/w1280/zzsZYcM5WSXnpNT9dEZQr4U7oWa.jpg"
+    ),
+    CarouselItemData(
+        title = "Tremors",
+        description = "Val McKee and Earl Bassett are in a fight for their lives when they " +
+                "discover that their desolate town has been infested with gigantic, man-eating " +
+                "creatures that live below the ground.",
+        imageUrl = "https://image.tmdb.org/t/p/w1280/cA4ggkZ3r1d5r9hOAUWC8x5ul2i.jpg"
+    ),
+    CarouselItemData(
+        title = "Mega Shark vs. Mecha Shark",
+        description = "When another Mega Shark returns from the depths of the sea, world " +
+                "militaries go on high alert.",
+        imageUrl = "https://image.tmdb.org/t/p/w1280/rUCNz12ZezKkT3jzvMhz9eiVXnS.jpg"
+    ),
 )

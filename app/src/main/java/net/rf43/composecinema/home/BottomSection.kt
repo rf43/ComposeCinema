@@ -57,11 +57,17 @@ internal fun BottomSection(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
+                .padding(horizontal = 8.dp)
                 .horizontalScroll(rememberScrollState()),
             horizontalArrangement = Arrangement.SpaceEvenly,
         ) {
-            for (i in 0..10) {
-                MovieCard()
+            movieCardList.forEach { movieItem ->
+                MovieCard(
+                    data = movieItem,
+                    onItemClick = { /*TODO*/ },
+                    onFavoriteClick = { /*TODO*/ },
+                    onItemPlayClick = { /*TODO*/ }
+                )
             }
         }
     }

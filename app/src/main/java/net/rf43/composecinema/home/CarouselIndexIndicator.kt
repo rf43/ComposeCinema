@@ -9,6 +9,7 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -20,17 +21,20 @@ import net.rf43.composecinema.ui.theme.ComposeCinemaTheme
 @Composable
 internal fun CarouselIndexIndicator(
     modifier: Modifier = Modifier,
-    dotCount: Int = 3,
-    selectedIndex: Int = 0,
-    selectedColor: Color = Color.White,
-    unselectedColor: Color = Color.Gray,
-    dotSize: Dp = 8.dp
+    dotCount: Int,
+    selectedIndex: Int,
+    selectedColor: Color,
+    unselectedColor: Color,
+    selectedDotSize: Dp,
+    unselectedDotSize: Dp
 ) {
     Box(modifier = modifier) {
-        LazyRow {
+        LazyRow(
+            verticalAlignment = Alignment.CenterVertically
+        ) {
             items(dotCount) { index ->
                 IndicatorDot(
-                    size = dotSize,
+                    size = if (index == selectedIndex) selectedDotSize else unselectedDotSize,
                     color = if (index == selectedIndex) selectedColor else unselectedColor
                 )
                 if (index != dotCount - 1) {
@@ -60,7 +64,14 @@ private fun IndicatorDot(
 fun DotsPreview() {
     ComposeCinemaTheme {
         Surface {
-            CarouselIndexIndicator()
+            CarouselIndexIndicator(
+                dotCount = 5,
+                selectedIndex = 2,
+                selectedColor = Color.White,
+                unselectedColor = Color.Gray,
+                selectedDotSize = 12.dp,
+                unselectedDotSize = 8.dp
+            )
         }
     }
 }
