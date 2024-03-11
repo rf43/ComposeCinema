@@ -35,14 +35,14 @@ internal fun BottomSection(
     ) {
         Row(
             modifier = Modifier
-                .height(36.dp)
+                .height(40.dp)
                 .background(
                     Brush.horizontalGradient(
                         listOf(
-                            Color(0xFF212931),
+                            Color(0xBE212931),
                             Color.Transparent
                         ),
-                        endX = 250.dp.value
+                        endX = 270.dp.value
                     )
                 )
                 .padding(horizontal = 16.dp),
@@ -50,7 +50,7 @@ internal fun BottomSection(
         ) {
             Text(
                 text = "Popular Movies",
-                style = MaterialTheme.typography.titleMedium,
+                style = MaterialTheme.typography.titleSmall,
             )
         }
         Spacer(modifier = Modifier.height(16.dp))

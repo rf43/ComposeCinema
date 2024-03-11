@@ -41,13 +41,20 @@ val Typography = Typography(
     titleMedium = TextStyle(
         fontFamily = FontFamily(Font(R.font.poppins_semibold)),
         fontWeight = FontWeight.SemiBold,
-        fontSize = 15.sp,
+        fontSize = 17.sp,
         lineHeight = 20.sp,
         letterSpacing = 0.sp
     ),
+    titleSmall = TextStyle(
+        fontFamily = FontFamily(Font(R.font.poppins_semibold)),
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 14.sp,
+        lineHeight = 18.sp,
+        letterSpacing = 0.5.sp
+    ),
     labelSmall = TextStyle(
         fontFamily = FontFamily(Font(R.font.poppins_extralight)),
-        fontWeight = FontWeight.Light,
+        fontWeight = FontWeight.ExtraLight,
         fontSize = 9.sp,
         lineHeight = 10.sp,
         letterSpacing = 0.5.sp

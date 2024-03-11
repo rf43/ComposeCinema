@@ -90,7 +90,7 @@ internal fun AutoCarousel(
             modifier = Modifier.padding(top = 16.dp),
             dotCount = itemCount,
             selectedIndex = pagerState.currentPage,
-            selectedColor = MaterialTheme.colorScheme.primary,
+            selectedColor = MaterialTheme.colorScheme.secondaryContainer,
             unselectedColor = MaterialTheme.colorScheme.onSurface,
             selectedDotSize = 10.dp,
             unselectedDotSize = 8.dp
