@@ -14,14 +14,11 @@ import androidx.compose.foundation.pager.PagerState
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.flow.collectLatest
 
 private const val ANIMATION_DURATION_MILLIS: Int = 1300
 private const val ANIMATION_DELAY_MILLIS: Int = 10000
@@ -38,12 +35,12 @@ internal fun AutoCarousel(
     val fling = PagerDefaults.flingBehavior(
         state = pagerState,
         pagerSnapDistance = PagerSnapDistance.atMost(1),
-        snapPositionalThreshold = 0.2f
+        snapPositionalThreshold = 0.1f
     )
 
-    var nextPage by remember { mutableIntStateOf(0) }
+//    var nextPage by remember { mutableIntStateOf(0) }
 
-    LaunchedEffect(key1 = pagerState.settledPage) {
+    LaunchedEffect(key1 = pagerState) {
         // I am not sure yet if there is a bug with this when setting
         // the next page to 0 when the current page is the last one.
         // I need to create a test project to see if I can reproduce
@@ -52,19 +49,25 @@ internal fun AutoCarousel(
 //        } else {
 //            pagerState.currentPage + 1
 //        }
-        nextPage = pagerState.currentPage + 1
 
-        pagerState.animateScrollToPage(
-            page = nextPage,
-            animationSpec = tween(
-                durationMillis = ANIMATION_DURATION_MILLIS,
-                delayMillis = ANIMATION_DELAY_MILLIS,
-                easing = FastOutSlowInEasing
-            )
-        )
-
-        snapshotFlow { pagerState.currentPage }.collect { page ->
+        var reverseScroll = false
+        snapshotFlow { pagerState.settledPage }.collectLatest { page ->
             onPageChange(page)
+
+            if (page == itemCount - 1) {
+                reverseScroll = true
+            } else if (page == 0) {
+                reverseScroll = false
+            }
+
+            pagerState.animateScrollToPage(
+                page = if (reverseScroll) page - 1 else page + 1,
+                animationSpec = tween(
+                    durationMillis = ANIMATION_DURATION_MILLIS,
+                    delayMillis = ANIMATION_DELAY_MILLIS,
+                    easing = FastOutSlowInEasing
+                )
+            )
         }
     }
 
@@ -78,6 +81,7 @@ internal fun AutoCarousel(
             modifier = Modifier.weight(1f),
             pageSize = PageSize.Fill,
             flingBehavior = fling,
+            beyondBoundsPageCount = itemCount
         ) { page ->
             itemContent(page)
         }
