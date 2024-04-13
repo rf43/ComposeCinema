@@ -21,7 +21,7 @@ import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.flow.collectLatest
 
 private const val ANIMATION_DURATION_MILLIS: Int = 1300
-private const val ANIMATION_DELAY_MILLIS: Int = 10000
+private const val ANIMATION_DELAY_MILLIS: Int = 5000
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
