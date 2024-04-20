@@ -15,8 +15,11 @@ import androidx.media3.ui.PlayerView
 
 private const val EXAMPLE_VIDEO_URI_01 =
     "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+
+// This one seems to no longer work
 private const val EXAMPLE_VIDEO_URI_02 =
     "https://player.vimeo.com/external/296210754.hd.mp4?s=08c03c14c04f15d65901f25b542eb2305090a3d7&profile_id=175&oauth2_token_id=57447761"
+
 private const val EXAMPLE_VIDEO_URI_03 =
     "https://commondatastorage.googleapis.com/gtv-videos-bucket/CastVideos/hls/BigBuckBunny.m3u8"
 private const val EXAMPLE_VIDEO_URI_04 =
@@ -26,6 +29,8 @@ private const val EXAMPLE_VIDEO_URI_05 =
 private const val EXAMPLE_VIDEO_URI_06 =
     "https://playertest.longtailvideo.com/adaptive/wowzaid3/playlist.m3u8"
 private const val EXAMPLE_VIDEO_URI_09 = "https://assets.afcdn.com/video49/20210722/v_645516.m3u8"
+
+// This one seems to no longer work
 private const val EXAMPLE_VIDEO_URI_11 =
     "https://nasatv-lh.akamaihd.net/i/NASA_101@319270/index_1000_av-p.m3u8"
 
@@ -34,14 +39,11 @@ private const val EXAMPLE_VIDEO_URI_12 =
 
 @Composable
 fun CinemaVideoPlayer(modifier: Modifier = Modifier) {
-
-
-
     val context = LocalContext.current
     val exoPlayer = ExoPlayer.Builder(context).build()
 
-    val mediaSource = remember(EXAMPLE_VIDEO_URI_04) {
-        MediaItem.fromUri(EXAMPLE_VIDEO_URI_04)
+    val mediaSource = remember(EXAMPLE_VIDEO_URI_12) {
+        MediaItem.fromUri(EXAMPLE_VIDEO_URI_12)
     }
 
     LaunchedEffect(mediaSource) {
