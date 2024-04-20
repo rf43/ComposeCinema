@@ -25,7 +25,8 @@ import net.rf43.composecinema.ui.theme.ComposeCinemaTheme
 
 @Composable
 internal fun BottomSection(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onItemPlayClick: () -> Unit
 ) {
     Column(
         modifier = modifier
@@ -64,9 +65,9 @@ internal fun BottomSection(
             movieCardList.forEach { movieItem ->
                 MovieCard(
                     data = movieItem,
-                    onItemClick = { /*TODO*/ },
+                    onItemClick = onItemPlayClick,
                     onFavoriteClick = { /*TODO*/ },
-                    onItemPlayClick = { /*TODO*/ }
+                    onItemPlayClick = onItemPlayClick
                 )
             }
         }
@@ -78,7 +79,7 @@ internal fun BottomSection(
 private fun Preview() {
     ComposeCinemaTheme {
         Surface {
-            BottomSection()
+            BottomSection {}
         }
     }
 }

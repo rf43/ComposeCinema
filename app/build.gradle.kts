@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "net.rf43.composecinema"
-        minSdk = 26
+        minSdk = 27
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -79,5 +79,5 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
 
     debugImplementation("androidx.compose.ui:ui-tooling")
-    debugImplementation("androidx.compose.ui:ui-test-manifest:1.6.5")
+    debugImplementation("androidx.compose.ui:ui-test-manifest:1.6.6")
 }
